@@ -20,9 +20,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     stripeSecret: process.env.STRIPE_SECRET,
     public: {
-      contentfulSpace: "v7fvzlkum53d",
+      contentfulSpace: process.env.NUXT_CONTENTFUL_SPACE,
       contentfulPublicAccessToken:
-        "dG3pVWxjHUEzLX0Xga4muaYMPWj0wEQ74RVKzZbMRX8",
+        process.env.NUXT_CONTENTFUL_PUBLIC_ACCESS_TOKEN,
       deskreeBaseUrl: process.env.NUXT_DESKREE_BASE_URL,
     },
   },
@@ -52,7 +52,7 @@ function requireEnvVars() {
     if (!map[label]) {
       ready = false;
       console.error(
-        `You must provide a ${label} in .env to start the project (see the Setup Guide for more instructions: https://vueschool.notion.site/Preparation-Guide-cf256a7352704d27bb7946c47907d40e)`
+        `You must provide a ${label} in .env to start the project (see the Setup Guide for more instructions: https://vueschool.notion.site/Preparation-Guide-cf256a7352704d27bb7946c47907d40e)`,
       );
     }
   }
